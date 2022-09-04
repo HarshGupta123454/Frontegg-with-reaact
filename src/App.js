@@ -4,25 +4,25 @@ import { useEffect } from "react"
 import { ContextHolder } from '@frontegg/rest-api';
 import {Routes,Route , useNavigate} from "react-router-dom";
 import { useAuth, useLoginWithRedirect } from "@frontegg/react";
-import About from './About';
+import About from './Home';
 import Login from './Login';
 import Navbar from './Navbar';
 
 function App() {
   const navigate = useNavigate()
-  const { user, isAuthenticated } = useAuth();
+  const { user,isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
     useEffect(() => {
  
     if(isAuthenticated){
-      navigate("/about")
-      alert("hua")
+      navigate("/home")
+      // alert("hua")
 
     }
-    // if(!isAuthenticated){
-    //   navigate("/")
-    //   alert("nhi hua")
-    // }
+    if(!isAuthenticated){
+      navigate("/")
+      // alert("nhi hua")
+    }
     
   }, []);
 
@@ -33,10 +33,11 @@ function App() {
   return (
   <>
   
+  
   <Routes>
     <Route path='/' element={<Navbar/>}>
       <Route index  element={<Login/>}/>
-      <Route path= '/about' element= {<About/>}/>
+      <Route path= '/home' element= {<About/>}/>
     </Route>
   </Routes>
   
@@ -49,8 +50,7 @@ function App() {
 export default App;
 
 
-{/* {isAuthenticated? <About sr={user?.profilePictureUrl} al= {user?.name}/>:<Login log={logout()}/>} */}
-  {/* <div className="App">
+{/* { <div className="App">
       { isAuthenticated ? (
         <div>
           <div>
@@ -71,4 +71,4 @@ export default App;
           <button onClick={() => loginWithRedirect()}>Click me to login</button>
         </div>
       )}
-    </div> */}
+    </div> } */}
