@@ -12,19 +12,19 @@ function App() {
   const navigate = useNavigate()
   const { user,isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
-    useEffect(() => {
+    // useEffect(() => {
  
-    if(isAuthenticated){
-      navigate("/home")
-      // alert("hua")
+  //   if(isAuthenticated){
+  //     // navigate("/home")
+  //     // alert("hua")
 
-    }
-    if(!isAuthenticated){
-      navigate("/")
-      // alert("nhi hua")
-    }
+  //   }
+  //   if(!isAuthenticated){
+  //     // navigate("/")
+  //     // alert("nhi hua")
+  //   }   
     
-  }, []);
+  // }, []);
 
   const logout = () => {
     const baseUrl = ContextHolder.getContext().baseUrl;
